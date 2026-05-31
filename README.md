@@ -2,7 +2,7 @@
 
 Ein kleines Java-Projekt zur Veranschaulichung grundlegender Konzepte der objektorientierten Programmierung.
 
-Dieses einfache Beispiel ist entstanden, als ich einem Kommilitonen verschiedene Java-OOP-Themen erklärt habe. Aus einzelnen Beispielen zu Klassen, Vererbung, abstrakten Klassen, Interfaces und `ArrayList`s hat sich daraus ein kleines textbasiertes RPG-Kampfsystem entwickelt.
+Dieses einfache Beispiel ist entstanden, als ich einem Kommilitonen verschiedene Java-OOP-Themen erklärt habe. Aus einzelnen Beispielen zu Klassen, Vererbung, abstrakten Klassen, Interfaces und `ArrayList`s hat sich daraus ein kleines zufalls basiertes RPG-Kampfsystem entwickelt.
 
 ## Ziel des Projekts
 
@@ -29,6 +29,7 @@ Gegner erben von einer abstrakten Oberklasse `Enemy`. Bestimmte Gegner können z
 public interface Healable {
     void heal(double amount);
 }
+```
 
 ## TODO
 
