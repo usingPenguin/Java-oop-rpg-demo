@@ -19,6 +19,7 @@ public class BattleSystem {
             if (Enemy.getLivingEnemies() <= 0) break;
 
             enemyTurn(player, enemies);
+            System.out.println();
         }
 
         if (player.isAlive()) {
@@ -43,7 +44,23 @@ public class BattleSystem {
             System.out.println(chosenEnemy.getName() + " hat mit " + chosenEnemy.getCurrentHealth() + " Leben überlebt!");
         }
 
+        tryRandomHealPlayer(player);
+
         System.out.println("\n");
+    }
+
+    private void tryRandomHealPlayer(Player player) {
+        Random rand = new Random();
+        int luckyNumber = rand.nextInt(3);
+
+        if (luckyNumber == 0) {
+            System.out.println();
+            System.out.println("Der Spieler hat Glück und wird geheilt!");
+            int amount = rand.nextInt(1, 10) * 10;
+            player.heal(amount);
+            System.out.println("Der Spieler wurde um: " + amount + " Leben geheilt!");
+            System.out.println("Der Spieler hat nun: " + player.getCurrentHealth() + " Leben!");
+        }
     }
 
     private void enemyTurn(Player player, ArrayList<Enemy> enemies) {
@@ -63,8 +80,6 @@ public class BattleSystem {
 
         if (!(chosenEnemy instanceof Witch witch)) return;
         performRandomHealingSpell(witch, enemies);
-
-        System.out.println("\n");
     }
 
     private void performRandomHealingSpell(Witch witch, ArrayList<Enemy> enemies) {
