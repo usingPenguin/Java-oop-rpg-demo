@@ -1,9 +1,10 @@
 package characters;
 
+import abilities.Attackable;
 import abilities.Damageable;
 import abilities.Lootable;
 
-public abstract class Enemy implements Damageable, Lootable {
+public abstract class Enemy implements Attackable, Damageable, Lootable {
     private static int livingEnemies = 0;
 
     protected double maxHealth;
@@ -20,6 +21,22 @@ public abstract class Enemy implements Damageable, Lootable {
         this.loot = loot;
 
         livingEnemies++;
+    }
+
+    public static int getLivingEnemies() {
+        return livingEnemies;
+    }
+
+    public void die() {
+        livingEnemies--;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public double getCurrentHealth() {
+        return currentHealth;
     }
 
     @Override
